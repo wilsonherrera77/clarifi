@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía Estratégica: Oportunidad CLARIFI para ONIC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flowchart-step {
+            border: 2px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .flowchart-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .flowchart-arrow {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- 
+    Palette Selection: "Energetic & Playful"
+    #FF6B6B (Coral Red)
+    #FFD166 (Sunny Yellow)
+    #06D6A0 (Turquoise Green)
+    #118AB2 (Cerulean Blue)
+    #073B4C (Midnight Blue - Text/Dark Accents)
+
+    Narrative & Structure Plan:
+    1.  Hook/Introduction: What is CLARIFI? Big numbers to grab attention ($10B goal).
+    2.  The Power Behind: Who are the founders (RRI & CfN)? Visualize their roles.
+    3.  A New Model: Explain the rights-holder-led governance. Use a diagram.
+    4.  Financial Deep Dive: Breakdown of funding goals, grant sizes, and priorities. Use charts to show scale and focus.
+    5.  Focus on Colombia: Show CLARIFI's current activities and partners in Colombia. Use a list/table.
+    6.  Strategic Alignment: Map ONIC's principles to CLARIFI's funding pillars. Use a comparison chart.
+    7.  The Path Forward: A step-by-step flowchart on how to engage with CLARIFI.
+    8.  Call to Action: Summarize key recommendations.
+
+    Visualization Strategy (NO SVG, NO MERMAID JS):
+    -   Data Point: $10B Mobilization Goal.
+        -   Goal: Inform.
+        -   Visualization: Single Big Number.
+        -   Justification: High impact, immediately conveys scale.
+        -   Method: Styled HTML/Tailwind.
+    -   Data Point: Grant Size Distribution ($100k-$1M vs $1M-$50M).
+        -   Goal: Compare.
+        -   Visualization: Bar Chart.
+        -   Justification: Clearly compares the two main grant types.
+        -   Library: Chart.js (Canvas).
+    -   Data Point: CLARIFI's 6 Funding Pillars.
+        -   Goal: Compare/Organize.
+        -   Visualization: Donut Chart.
+        -   Justification: Shows the equal importance of the 6 pillars as entry points.
+        -   Library: Chart.js (Canvas).
+    -   Data Point: ONIC Principles vs. CLARIFI Priorities.
+        -   Goal: Relationships.
+        -   Visualization: Radar Chart.
+        -   Justification: Excellent for showing alignment/synergy between two sets of principles across multiple axes.
+        -   Library: Chart.js (Canvas).
+    -   Data Point: How to Engage with CLARIFI (Process).
+        -   Goal: Organize.
+        -   Visualization: Flow Chart.
+        -   Justification: Clearly shows a step-by-step process.
+        -   Method: Structured HTML/CSS with Tailwind (using flexbox, borders, and icons).
+    -   Data Point: Governance Structure (Rights-Holder Led).
+        -   Goal: Organize.
+        -   Visualization: Diagram.
+        -   Justification: Visually represents the power shift in the governance model.
+        -   Method: Structured HTML/CSS with Tailwind.
+    -->
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#073B4C] mb-2">Oportunidad Estratégica: ONIC y CLARIFI</h1>
+            <p class="text-lg md:text-xl text-[#118AB2]">Una guía interactiva para una alianza transformadora</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="intro" class="text-center bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-[#073B4C] mb-4">¿Qué es CLARIFI?</h2>
+                <p class="max-w-3xl mx-auto text-lg mb-6">La Iniciativa Comunitaria sobre Derechos Territoriales y Financiación de la Conservación (CLARIFI) es un mecanismo de financiación de nueva generación. Su misión es romper los moldes tradicionales para canalizar recursos directamente a quienes protegen la tierra.</p>
+                <div class="bg-[#118AB2] text-white p-8 rounded-lg shadow-inner">
+                    <p class="text-2xl font-bold mb-2">Meta de Movilización para 2030</p>
+                    <p class="text-7xl font-black tracking-tighter">$10,000,000,000</p>
+                    <p class="mt-2 text-lg">Diez mil millones de dólares para asegurar derechos territoriales y liderar la conservación desde las bases.</p>
+                </div>
+            </section>
+
+            <section id="ecosystem" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-[#073B4C] mb-4">🏛️ Rights and Resources Initiative (RRI)</h3>
+                    <p class="font-bold text-xl text-[#118AB2]">La Fundación</p>
+                    <p class="mt-2">RRI aporta 20 años de experiencia y una red global de más de 200 organizaciones. Proporciona la credibilidad, la confianza y las relaciones preexistentes que permiten a CLARIFI operar eficazmente y conectar con las comunidades a un nivel profundo.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-[#073B4C] mb-4">🌳 Campaign for Nature (CfN)</h3>
+                    <p class="font-bold text-xl text-[#06D6A0]">El Motor de Incidencia</p>
+                    <p class="mt-2">CfN impulsa la agenda global "30x30", trabajando en los más altos niveles políticos para generar la voluntad y los fondos necesarios. Crean el entorno propicio para que la financiación de la conservación fluya hacia un modelo basado en derechos.</p>
+                </div>
+            </section>
+            
+            <section id="governance" class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Un Cambio de Paradigma en la Gobernanza</h2>
+                <p class="text-center max-w-3xl mx-auto text-lg mb-8">CLARIFI invierte la pirámide de poder tradicional. Las decisiones estratégicas no las toman los donantes, sino los propios titulares de derechos, asegurando que la agenda responda a las necesidades reales de las comunidades.</p>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                    <div class="bg-[#FFD166] p-6 rounded-lg shadow-md text-[#073B4C] w-full md:w-1/3">
+                        <p class="text-5xl mb-2">👑</p>
+                        <h4 class="text-xl font-bold">Comité Directivo</h4>
+                        <p class="font-bold text-2xl">100%</p>
+                        <p>Compuesto en su totalidad por representantes de organizaciones de titulares de derechos. Ellos marcan el rumbo estratégico.</p>
+                    </div>
+                     <div class="text-5xl text-[#118AB2] hidden md:block">&rarr;</div>
+                     <div class="text-5xl text-[#118AB2] md:hidden">&darr;</div>
+                    <div class="bg-gray-200 p-6 rounded-lg shadow-md text-[#073B4C] w-full md:w-1/3">
+                         <p class="text-5xl mb-2">⚙️</p>
+                        <h4 class="text-xl font-bold">Equipo Técnico</h4>
+                        <p>Liderado por <span class="font-bold">Deborah Sanchez</span>, líder indígena Miskitu. Gestiona las operaciones diarias y ejecuta la visión del Comité Directivo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="finance" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-[#073B4C] mb-4">Capacidad y Tipos de Subvención</h3>
+                    <p class="mb-6">CLARIFI ofrece una estructura de financiación flexible, diseñada tanto para proyectos específicos como para programas transformadores a gran escala.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="grantSizesChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="text-2xl font-bold text-[#073B4C] mb-4">Los 6 Pilares de Financiación</h3>
+                    <p class="mb-6">Los proyectos deben alinearse con una o más de estas áreas prioritarias, que demuestran una comprensión integral de las necesidades de las organizaciones.</p>
+                    <div class="chart-container h-64 md:h-80">
+                        <canvas id="pillarsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="alignment" class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-2">Alineación Estratégica: ONIC y CLARIFI</h2>
+                <p class="text-center max-w-3xl mx-auto text-lg mb-8">Existe una sinergia casi perfecta entre los principios fundacionales de la ONIC y las prioridades temáticas de CLARIFI. Este gráfico de radar muestra la fuerte conexión en todas las áreas clave, formando una base sólida para propuestas de proyectos convincentes.</p>
+                <div class="chart-container h-96 md:h-[500px] max-h-[500px]">
+                    <canvas id="alignmentChart"></canvas>
+                </div>
+            </section>
+
+            <section id="path" class="bg-[#073B4C] text-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold text-center mb-8">La Ruta hacia la Asociación: Un Proceso Accesible</h2>
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+                    <div class="flowchart-step bg-white text-[#073B4C] p-4 rounded-lg w-full md:w-1/4 border-[#FFD166]">
+                        <p class="text-4xl">💡</p>
+                        <h4 class="font-bold text-lg">Paso 1: Nota Conceptual</h4>
+                        <p class="text-sm">Presentar una idea concisa (escrita, audio o video) respondiendo a 4 preguntas clave. No se requiere una propuesta extensa.</p>
+                    </div>
+                    <div class="flowchart-arrow text-[#FFD166]">&darr;</div>
+                    <div class="flowchart-step bg-white text-[#073B4C] p-4 rounded-lg w-full md:w-1/4 border-[#FF6B6B]">
+                        <p class="text-4xl">🔍</p>
+                        <h4 class="font-bold text-lg">Paso 2: Revisión</h4>
+                        <p class="text-sm">El equipo técnico de CLARIFI revisa la alineación de la propuesta con sus prioridades estratégicas y su viabilidad.</p>
+                    </div>
+                    <div class="flowchart-arrow text-[#FF6B6B]">&darr;</div>
+                    <div class="flowchart-step bg-white text-[#073B4C] p-4 rounded-lg w-full md:w-1/4 border-[#06D6A0]">
+                        <p class="text-4xl">🤝</p>
+                        <h4 class="font-bold text-lg">Paso 3: Co-diseño</h4>
+                        <p class="text-sm">Si la nota es prometedora, se inicia un diálogo para desarrollar una propuesta completa en colaboración.</p>
+                    </div>
+                    <div class="flowchart-arrow text-[#06D6A0]">&darr;</div>
+                    <div class="flowchart-step bg-white text-[#073B4C] p-4 rounded-lg w-full md:w-1/4 border-[#118AB2]">
+                        <p class="text-4xl">🚀</p>
+                        <h4 class="font-bold text-lg">Paso 4: Financiación</h4>
+                        <p class="text-sm">Aprobación y desembolso de fondos para iniciar el proyecto y la asociación estratégica.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="recommendations" class="bg-white p-8 rounded-lg shadow-lg">
+                 <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-8">Recomendaciones Estratégicas Clave para la ONIC</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-[#FF6B6B]">
+                        <h4 class="font-bold text-xl text-[#073B4C] mb-2">1. Iniciar un Diálogo de Coalición</h4>
+                        <p>Contactar a OPIAC y PCN para explorar una propuesta conjunta. Aprovechar la alianza existente en "Juntanza Étnica" (IPACE) como un modelo probado. Un frente unificado maximiza el poder de negociación.</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-[#FFD166]">
+                        <h4 class="font-bold text-xl text-[#073B4C] mb-2">2. Desarrollar Notas Conceptuales</h4>
+                        <p>Preparar un portafolio de ideas de proyectos, tanto para una posible coalición como para las necesidades institucionales más urgentes de la ONIC (ej. fortalecimiento de la Guardia Indígena, costos operativos).</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-[#06D6A0]">
+                        <h4 class="font-bold text-xl text-[#073B4C] mb-2">3. Realizar un Acercamiento Dirigido</h4>
+                        <p>Buscar un contacto directo con Deborah Sanchez (Directora de CLARIFI) o con el equipo del programa de América Latina de RRI, en lugar de utilizar canales genéricos para una presentación más estratégica.</p>
+                    </div>
+                     <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-[#118AB2]">
+                        <h4 class="font-bold text-xl text-[#073B4C] mb-2">4. Posicionarse como Socio Estratégico</h4>
+                        <p>Presentar a la ONIC no solo como un beneficiario, sino como un socio indispensable para lograr los objetivos de CLARIFI en la región Andina, trascendiendo la dinámica tradicional de donante-receptor.</p>
+                    </div>
+                 </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-sm text-gray-500">Infografía generada para la Organización Nacional Indígena de Colombia (ONIC). Agosto, 2025.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const FgColor = '#073B4C';
+        const Palette = {
+            red: '#FF6B6B',
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            darkBlue: '#073B4C'
+        };
+
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + ' ' + words[i]).length > maxWidth) {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                } else {
+                    currentLine += ' ' + words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: FgColor,
+                        font: {
+                            size: 14
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: FgColor, font: { size: 12 } },
+                    grid: { color: '#e0e0e0' }
+                },
+                x: {
+                    ticks: { color: FgColor, font: { size: 12 } },
+                    grid: { display: false }
+                }
+            }
+        };
+
+        const grantSizesCtx = document.getElementById('grantSizesChart').getContext('2d');
+        new Chart(grantSizesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Subvenciones Directas', ['Subvenciones de', 'Paso (Pass-through)']],
+                datasets: [{
+                    label: 'Tamaño de Subvención (USD)',
+                    data: [1000000, 50000000],
+                    backgroundColor: [Palette.yellow, Palette.green],
+                    borderColor: [Palette.yellow, Palette.green],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                scales: {
+                    y: {
+                        type: 'logarithmic',
+                        ticks: {
+                            color: FgColor,
+                            callback: function(value, index, values) {
+                                if (value === 100000000 || value === 10000000 || value === 1000000 || value === 100000) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        },
+                        grid: { color: '#e0e0e0' }
+                    },
+                    x: {
+                        ticks: { color: FgColor, font: { size: 12 } },
+                        grid: { display: false }
+                    }
+                },
+                 plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback,
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += '$' + context.parsed.y.toLocaleString();
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        const pillarsCtx = document.getElementById('pillarsChart').getContext('2d');
+        const pillarLabels = [
+            'Seguridad de la Tenencia',
+            'Conservación y Gestión',
+            'Capacidad Organizativa',
+            'Protección de Defensores',
+            'Economías Indígenas',
+            'Justicia de Género'
+        ].map(label => wrapLabel(label, 16));
+
+        new Chart(pillarsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: pillarLabels,
+                datasets: [{
+                    label: 'Pilares de Financiación',
+                    data: [1, 1, 1, 1, 1, 1],
+                    backgroundColor: [Palette.red, Palette.yellow, Palette.green, Palette.blue, Palette.darkBlue, '#EF476F'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: FgColor,
+                            font: { size: 12 },
+                            boxWidth: 20
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const alignmentCtx = document.getElementById('alignmentChart').getContext('2d');
+        const alignmentLabels = [
+            'Derechos Territoriales', 
+            'Fortalecimiento Institucional', 
+            'Sostenibilidad Económica', 
+            'Protección y Seguridad', 
+            'Incidencia Política',
+            'Equidad de Género'
+        ].map(label => wrapLabel(label, 16));
+
+        new Chart(alignmentCtx, {
+            type: 'radar',
+            data: {
+                labels: alignmentLabels,
+                datasets: [{
+                    label: 'Principios ONIC',
+                    data: [5, 4, 4, 5, 5, 3],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                    borderColor: Palette.red,
+                    pointBackgroundColor: Palette.red,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: Palette.red
+                }, {
+                    label: 'Prioridades CLARIFI',
+                    data: [5, 5, 4, 5, 4, 5],
+                    fill: true,
+                    backgroundColor: 'rgba(17, 138, 178, 0.2)',
+                    borderColor: Palette.blue,
+                    pointBackgroundColor: Palette.blue,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: Palette.blue
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: FgColor,
+                            font: { size: 14 }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: '#ccc' },
+                        grid: { color: '#ddd' },
+                        pointLabels: {
+                            color: FgColor,
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            }
+                        },
+                        ticks: {
+                            backdropColor: 'rgba(255, 255, 255, 0.75)',
+                            color: FgColor,
+                            stepSize: 1
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 5
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
